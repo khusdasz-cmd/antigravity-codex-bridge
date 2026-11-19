@@ -1,0 +1,41 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "codexmcp"
+version = "0.7.4"
+description = "Antigravity MCP bridge for Codex CLI execution and shared Codex conversations."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "anyio>=4.5",
+    "mcp[cli]>=1.20.0",
+    "pydantic>=2.0",
+]
+authors = [
+    { name = "guda.studio", email = "gudaclaude@gmail.com" },
+]
+maintainers = [{ name = "khusdasz-cmd" }]
+license = "MIT"
+license-files = ["LICENSE"]
+keywords = ["antigravity", "mcp", "fastmcp", "codex"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/khusdasz-cmd/antigravity-codex-bridge"
+Repository = "https://github.com/khusdasz-cmd/antigravity-codex-bridge"
+Issues = "https://github.com/khusdasz-cmd/antigravity-codex-bridge/issues"
+
+[project.scripts]
+codexmcp = "codexmcp.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/codexmcp"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/codexmcp", "plugin", "docs", "tests", "README.md", "LICENSE"]
